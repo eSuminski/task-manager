@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Kanban } from './Kanban';
-import './style.css';
+import { Kanban } from './board/Kanban';
+import './styling/style.css';
 
 const root = document.getElementById('root');
 if (root) {
