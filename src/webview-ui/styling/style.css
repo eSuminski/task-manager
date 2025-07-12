@@ -32,3 +32,86 @@
   word-break: break-word;
   white-space: normal;
 }
+
+.add-task-btn {
+  background: var(--vscode-button-background, #e7e7e7);
+  color: var(--vscode-button-foreground, #222);
+  border: none;
+  padding: 0.4em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  outline: none;
+  font-size: clamp(0.5rem, 1vw, 1rem);    /* Responsive font size */
+  white-space: normal;                  /* Allow wrapping */
+  word-break: break-word;               /* Break long words */
+  width: auto;                    
+  text-align: center;                   /* Center text if it wraps */
+}
+
+.add-task-btn:hover {
+  background: var(--vscode-button-hoverBackground, #d0d0d0);
+  box-shadow: 0 0 0 2px var(--vscode-focusBorder, #007acc);
+}
+
+.add-task-btn:active {
+  background: var(--vscode-button-activeBackground, #c0c0c0);
+  box-shadow: 0 0 0 2px var(--vscode-focusBorder, #007acc) inset;
+}
+
+/* Add to style.css */
+.task-card {
+  background: var(--vscode-editorWidget-background, #fff);
+  color: var(--vscode-editorWidget-foreground, #222);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.task-card-description {
+  font-size: 0.95rem;
+  color: var(--vscode-descriptionForeground, #666);
+  text-align: left;
+  word-break: break-word;
+}
+
+/* Add to your style.css */
+.task-card input,
+.task-card textarea {
+  background: var(--vscode-input-background, #fff);
+  color: var(--vscode-input-foreground, #222);
+  border: 1px solid var(--vscode-input-border, #ccc);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 6px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+/* Prevent manual resizing of textarea */
+.task-card textarea {
+  resize: none;
+}
+
+.task-card input:focus,
+.task-card textarea:focus {
+  border: 1.5px solid var(--vscode-focusBorder, #007acc);
+  background: var(--vscode-input-background, #fff);
+}
