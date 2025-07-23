@@ -9,7 +9,11 @@ export const CreateCard: React.FC = () => (
         <textarea placeholder="Task Description"></textarea>
     </div>
     <div>
-        <button className="add-task-btn">Add Task</button>
+        <input type="text" placeholder="Subtask" />
+        <button className="add-btn">+</button>
+    </div>
+    <div className="right-align">
+        <button className="add-btn">Add Task</button>
     </div>
   </div>
 );

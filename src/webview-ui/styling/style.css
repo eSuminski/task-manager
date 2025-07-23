@@ -33,7 +33,20 @@
   white-space: normal;
 }
 
-.add-task-btn {
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subtask-input {
+  flex: 1;
+}
+
+.remove-btn {
+  margin-left: 4px;
+}
+
+.add-btn {
   background: var(--vscode-button-background, #e7e7e7);
   color: var(--vscode-button-foreground, #222);
   border: none;
@@ -49,12 +62,12 @@
   text-align: center;                   /* Center text if it wraps */
 }
 
-.add-task-btn:hover {
+.add-btn:hover {
   background: var(--vscode-button-hoverBackground, #d0d0d0);
   box-shadow: 0 0 0 2px var(--vscode-focusBorder, #007acc);
 }
 
-.add-task-btn:active {
+.add-btn:active {
   background: var(--vscode-button-activeBackground, #c0c0c0);
   box-shadow: 0 0 0 2px var(--vscode-focusBorder, #007acc) inset;
 }
