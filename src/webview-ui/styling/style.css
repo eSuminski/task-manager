@@ -42,8 +42,21 @@
   flex: 1;
 }
 
+.subtask-input-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .remove-btn {
-  margin-left: 4px;
+  height: 100%;
+  box-sizing: border-box;
+  margin-left: 0.25em;
+  margin-bottom: 0.3em;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-btn {
@@ -55,11 +68,11 @@
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
   outline: none;
-  font-size: clamp(0.5rem, 1vw, 1rem);    /* Responsive font size */
-  white-space: normal;                  /* Allow wrapping */
-  word-break: break-word;               /* Break long words */
+  font-size: clamp(0.5rem, 1vw, 1rem);    
+  white-space: normal;                  
+  word-break: break-word;               
   width: auto;                    
-  text-align: center;                   /* Center text if it wraps */
+  text-align: center;                   
 }
 
 .add-btn:hover {
