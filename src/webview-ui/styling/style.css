@@ -33,7 +33,33 @@
   white-space: normal;
 }
 
-.add-task-btn {
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subtask-input {
+  flex: 1;
+}
+
+.subtask-input-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.remove-btn {
+  height: 100%;
+  box-sizing: border-box;
+  margin-left: 0.25em;
+  margin-bottom: 0.3em;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn {
   background: var(--vscode-button-background, #e7e7e7);
   color: var(--vscode-button-foreground, #222);
   border: none;
@@ -42,19 +68,19 @@
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
   outline: none;
-  font-size: clamp(0.5rem, 1vw, 1rem);    /* Responsive font size */
-  white-space: normal;                  /* Allow wrapping */
-  word-break: break-word;               /* Break long words */
+  font-size: clamp(0.5rem, 1vw, 1rem);    
+  white-space: normal;                  
+  word-break: break-word;               
   width: auto;                    
-  text-align: center;                   /* Center text if it wraps */
+  text-align: center;                   
 }
 
-.add-task-btn:hover {
+.add-btn:hover {
   background: var(--vscode-button-hoverBackground, #d0d0d0);
   box-shadow: 0 0 0 2px var(--vscode-focusBorder, #007acc);
 }
 
-.add-task-btn:active {
+.add-btn:active {
   background: var(--vscode-button-activeBackground, #c0c0c0);
   box-shadow: 0 0 0 2px var(--vscode-focusBorder, #007acc) inset;
 }
