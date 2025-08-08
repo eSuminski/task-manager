@@ -166,3 +166,5 @@ media/**
 .vscode/**
 .vscode-test.mjs
 package-lock.json
+
+properties.env

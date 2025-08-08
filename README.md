@@ -38,4 +38,23 @@ code .
 
 ---
 
+## Testing (Playwright E2E)
+
+This project uses Playwright to drive VS Code for end-to-end tests. Use the provided npm scripts:
+
+- Full E2E flow (runs smoke first, then runs the rest excluding record and smoke tests):
+```bash
+npm run e2e
+```
+
+- Record new steps with VS Code visible (for prototyping tests):
+```bash
+npm run record
+```
+
+Notes:
+- The suite includes fixtures and page objects under `src/test/` to automate VS Code and keep tests maintainable.
+- Keep adding specs under `src/test/` and they will be picked up by the Playwright runner.
+
+
 For more details, see the [VS Code Extension documentation](https://code.visualstudio.com/api/get-started/your-first-extension) or the TODO.md for project-specific tasks.
