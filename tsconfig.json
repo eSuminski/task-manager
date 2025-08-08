@@ -8,7 +8,17 @@
 		],
 		"jsx": "react-jsx",
 		"sourceMap": true,
-		"rootDir": "src",
-		"strict": true,
-	}
+		"rootDir": ".",
+		"strict": true
+	},
+	"include": [
+		"src/**/*",
+		"playwright.config.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"out",
+		"dist",
+		"media",
+	]
 }
