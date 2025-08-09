@@ -168,3 +168,5 @@ media/**
 package-lock.json
 
 properties.env
+
+reports/**

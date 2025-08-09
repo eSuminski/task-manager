@@ -32,7 +32,7 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src",
-    "e2e": "npx playwright test smoke && npx playwright test --grep-invert \"/record|smoke/\"",
+    "e2e": "ts-node src/test/runners/smoke_runner.ts && ts-node src/test/runners/e2e_runner.ts",
     "record": "npx playwright test record -- --vscode-visible"
   },
   "dependencies": {
@@ -53,6 +53,7 @@
     "playwright": "^1.54.2",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "webpack": "^5.99.7",
     "webpack-cli": "^6.0.1"
