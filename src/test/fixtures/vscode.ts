@@ -66,20 +66,20 @@ export const test = base.extend<Fixtures & {reloadWindow: void}>({
    *
    * The reload is performed before each test automatically; no value is injected.
    */
-  reloadWindow: [
-    async ({ vscodePage }, use) => {
-      // Open Command Palette and run Developer: Reload Window
-      await vscodePage.keyboard.press('ControlOrMeta+Shift+P');
-      const input = vscodePage.getByRole('textbox', { name: /command/i });
-      await input.waitFor({ state: 'visible' });
-      await input.fill('Developer: Reload Window');
-      await vscodePage.keyboard.press('Enter');
-      // Wait for the workbench to reload
-      await vscodePage.waitForSelector('.monaco-workbench', { state: 'visible'});
-      await use(undefined);
-    },
-    { auto: true }
-  ],
+  // reloadWindow: [
+  //   async ({ vscodePage }, use) => {
+  //     // Open Command Palette and run Developer: Reload Window
+  //     await vscodePage.keyboard.press('ControlOrMeta+Shift+P');
+  //     const input = vscodePage.getByRole('textbox', { name: /command/i });
+  //     await input.waitFor({ state: 'visible' });
+  //     await input.fill('Developer: Reload Window');
+  //     await vscodePage.keyboard.press('Enter');
+  //     // Wait for the workbench to reload
+  //     await vscodePage.waitForSelector('.monaco-workbench', { state: 'visible'});
+  //     await use(undefined);
+  //   },
+  //   { auto: true }
+  // ],
 });
 
 export { expect };

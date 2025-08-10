@@ -1,14 +1,15 @@
 import { defineConfig, devices } from '@playwright/test';
 import path from 'path';
 
-const REPORT_FOLDER = process.env.REPORT_FOLDER || 'test-results';
+const REPORT_FOLDER = process.env.REPORT_FOLDER || 'test-results/report';
+const REPORT_ARTIFACTS_FOLDER = process.env.REPORT_ARTIFACTS_FOLDER || 'test-results/artifacts';
 const REPORT_TITLE = process.env.REPORT_TITLE || 'Test Report';
 
 export default defineConfig({
   reporter: [
     ['html', { outputFolder: REPORT_FOLDER, title: REPORT_TITLE }],  ],
   testDir: './src/test',
-  outputDir: REPORT_FOLDER,
+  outputDir: REPORT_ARTIFACTS_FOLDER,
   timeout: 5000,
   retries: 0,
   workers: 1, // one VS Code window shared across tests
@@ -17,6 +18,7 @@ export default defineConfig({
     headless: true,
     trace: 'on-first-retry',
     ...devices['Desktop Chrome'],
+    screenshot: 'only-on-failure',
   },
   globalSetup: path.resolve(__dirname, 'src/test/global/global-setup.ts'),
   globalTeardown: path.resolve(__dirname, 'src/test/global/global-teardown.ts'),

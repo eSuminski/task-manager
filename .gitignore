@@ -170,3 +170,5 @@ package-lock.json
 properties.env
 
 reports/**
+
+test-results/**

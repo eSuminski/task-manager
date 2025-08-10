@@ -19,7 +19,7 @@ export const CreateCard: React.FC = () => {
   };
 
   return (
-    <div className="task-card">
+    <div className="task-card" data-testid="createCard">
       <div className="task-card-title">
         <input type="text" placeholder="Task Title" />
       </div>
