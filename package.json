@@ -14,12 +14,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "task-manager.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "task-manager.openTaskManager",
         "title": "Open Task Manager"
+      }
+    ],
+    "keybindings":[
+      {
+        "command": "task-manager.openTaskManager",
+        "key": "ctrl+alt+m"
       }
     ]
   },
