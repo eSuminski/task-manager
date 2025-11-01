@@ -11,8 +11,9 @@ export const TaskCard: React.FC<Task> = ({ title, description, subtasks }) => {
       )
     );
   };
+  const allSubtasksCompleted = localSubtasks.length > 0 && localSubtasks.every(subtask => subtask.completed);
   return (
-    <div className="task-card">
+    <div className={`task-card${allSubtasksCompleted ? " all-completed" : ""}`}>
       <div className="task-card-title">{title}</div>
       {description && (<div className="task-card-description">{description}</div>)}
       {localSubtasks.length > 0 && (

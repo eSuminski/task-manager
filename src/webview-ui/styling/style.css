@@ -141,6 +141,13 @@
   background: var(--vscode-input-background, #fff);
 }
 
+.task-card.all-completed .task-card-title,
+.task-card.all-completed .task-card-description,
+.task-card.all-completed .subtask-title {
+  text-decoration: line-through;
+  color: var(--vscode-descriptionForeground, #888);
+}
+
 .task-card-subtasks {
   list-style: none;
   padding: 0;
