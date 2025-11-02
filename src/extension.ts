@@ -2,18 +2,17 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 
+let taskManagerPanel: vscode.WebviewPanel | undefined;
+
 export function activate(context: vscode.ExtensionContext) {
 
-	console.log('Congratulations, your extension "task-manager" is now active!');
-
-	const disposable = vscode.commands.registerCommand('task-manager.helloWorld', () => {
-		vscode.window.showInformationMessage('Hello World from task-manager!');
-	});
-
-	context.subscriptions.push(disposable);
-
 	const openTaskManagerDisposable = vscode.commands.registerCommand('task-manager.openTaskManager', async () => {
-		const panel = vscode.window.createWebviewPanel(
+		if(taskManagerPanel){
+			taskManagerPanel.reveal();
+			return;
+		}
+		
+		taskManagerPanel = vscode.window.createWebviewPanel(
 			'taskManager',
 			'Task Manager',
 			vscode.ViewColumn.One,
@@ -27,14 +26,23 @@ export function activate(context: vscode.ExtensionContext) {
 		const indexPath = path.join(mediaPath.fsPath, 'index.html');
 		let html = fs.readFileSync(indexPath, 'utf8');
 
-		// Replace asset paths with webview URIs (only for relative paths)
-		const fixUri = (asset: string) => {
-			// Ignore external or already absolute URLs
-			if (/^(https?:|vscode-resource:|data:|\/)/.test(asset)) {
-				return asset;
-			}
-			return panel.webview.asWebviewUri(vscode.Uri.joinPath(mediaPath, asset));
-		};
+        // Replace asset paths with webview URIs (only for relative paths)
+        const fixUri = (asset: string) => {
+            // Ignore external or already absolute URLs
+            if (/^(https?:|vscode-resource:|data:|\/)/.test(asset)) {
+                return asset;
+            }
+            if (!taskManagerPanel) {
+                console.error('taskManagerPanel is undefined in fixUri');
+                return asset; // fallback to original asset path
+            }
+            try {
+                return taskManagerPanel.webview.asWebviewUri(vscode.Uri.joinPath(mediaPath, asset));
+            } catch (err) {
+                console.error('Error in fixUri:', err);
+                return asset;
+            }
+        };
 		html = html.replace(/src="([^"]+)"/g, (match, src) => {
 			return `src="${fixUri(src)}"`;
 		});
@@ -42,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
 			return `href="${fixUri(href)}"`;
 		});
 
-		panel.webview.html = html;
+		taskManagerPanel.webview.html = html;
 	});
 
 	context.subscriptions.push(openTaskManagerDisposable);

@@ -101,7 +101,7 @@
 }
 
 .task-card-title {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-align: left;
   margin-bottom: 4px;
@@ -109,13 +109,12 @@
 }
 
 .task-card-description {
-  font-size: 0.95rem;
+  font-size: 1.3rem;
   color: var(--vscode-descriptionForeground, #666);
   text-align: left;
   word-break: break-word;
 }
 
-/* Add to your style.css */
 .task-card input,
 .task-card textarea {
   background: var(--vscode-input-background, #fff);
@@ -140,4 +139,48 @@
 .task-card textarea:focus {
   border: 1.5px solid var(--vscode-focusBorder, #007acc);
   background: var(--vscode-input-background, #fff);
+}
+
+.task-card.all-completed .task-card-title,
+.task-card.all-completed .task-card-description,
+.task-card.all-completed .subtask-title {
+  text-decoration: line-through;
+  color: var(--vscode-descriptionForeground, #888);
+}
+
+.task-card-subtasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subtask-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.subtask-icon {
+  font-size: 1em;
+  color: var(--vscode-descriptionForeground, #888);
+  margin-right: 2px;
+}
+
+.subtask-title {
+  flex: 1;
+  word-break: break-word;
+  font-size: 1.1rem;
+}
+
+.subtask-title.completed {
+  text-decoration: line-through;
+  color: var(--vscode-descriptionForeground, #888);
+}
+
+.subtask-row input[type="checkbox"] {
+  accent-color: var(--vscode-button-background, #007acc);
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0;
 }
