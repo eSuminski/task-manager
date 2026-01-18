@@ -32,23 +32,24 @@
 
 #### Implement Drag and Drop with In-Column Reordering
 
-**Goal:** Add native HTML5 drag and drop functionality to move and reorder task cards both between columns and within the same column. Replace StartColumn with standard column component for consistency.
+**Goal:** Add native HTML5 drag and drop functionality to move and reorder task cards both between columns and within the same column. ~~Replace StartColumn with standard column component for consistency.~~
 
 **Implementation Steps:**
 
 1. **Enhance task data model** in [KanbanTaskProps.tsx](src/webview-ui/interface/KanbanTaskProps.tsx)
-   - Add `order: number` property to `Task` interface for maintaining sort order within columns
-   - Update existing task creation logic to assign order values
+   - ~~Add `order: number` property to `Task` interface for maintaining sort order within columns~~
+   - ~~Update existing task creation logic to assign order values~~
+    - size of tasks list is used to set order when creating tasks
 
 2. **Add task reorder handler** in [Kanban.tsx](src/webview-ui/board/Kanban.tsx)
-   - Create `moveTask(taskId: string, newStatus: string, newOrder: number)` function
-   - Reorder tasks array based on drop target location and recalculate order values
-   - Sort tasks by order property when filtering by status
+   - ~~Create `moveTask(taskId: string, newStatus: string, newOrder: number)` function~~
+   - ~~Reorder tasks array based on drop target location and recalculate order values~~
+   - ~~Sort tasks by order property when filtering by status~~
 
 3. **Make TaskCards draggable** in [TaskCard.tsx](src/webview-ui/card/TaskCard.tsx)
-   - Add `draggable={true}` attribute
-   - Implement `onDragStart` to store task ID, current status, and source order in `dataTransfer`
-   - Add `onDragEnd` handler for cleanup
+   - ~~Add `draggable={true}` attribute~~
+   - ~~Implement `onDragStart` to store task ID, current status, and source order in `dataTransfer`~~
+   - ~~Add `onDragEnd` handler for cleanup~~
 
 4. **Create DropIndicator component** in [src/webview-ui/card/DropIndicator.tsx](src/webview-ui/card/DropIndicator.tsx)
    - Visual component showing horizontal line at insertion point
@@ -62,7 +63,7 @@
    - Implement `onDrop` to trigger moveTask with new status and order
    - Handle edge cases: empty columns, top/bottom drops, same-column reordering
 
-6. **Update Kanban to use unified columns** in [Kanban.tsx](src/webview-ui/board/Kanban.tsx)
+6. **Update Kanban to use unified columns ---- DONE** in [Kanban.tsx](src/webview-ui/board/Kanban.tsx)
    - Replace StartColumn with column.tsx for all three columns
    - Pass status prop ("todo" | "doing" | "done") to each column
    - Render CreateCard as first child in TODO column

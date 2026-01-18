@@ -18,13 +18,27 @@ export const Kanban: React.FC = () => {
       title: title,
       description: description,
       subtasks: subTasksWithIds,
-      status:"todo"
+      status:"todo",
+      order: tasks.length
     }
     setTasks((prev)=>[...prev, newTask])
   }
-  const todoTasks = tasks.filter((task) => task.status === "todo" );
-  const doingTasks = tasks.filter((task) => task.status === "doing");
-  const doneTasks = tasks.filter((task) => task.status === "done");
+  const moveTask = (taskId: string, newStatus: string, newOrder: number) => {
+    const task = tasks.find((task) => task.id === taskId);
+    if (!task) {
+      // TODO: handle gracefully
+      throw new Error("Task not found");
+    }
+    const updatedTask = { ...task, status: newStatus as "todo" | "doing" | "done", order: newOrder };
+    setTasks((prevTasks) =>
+      prevTasks
+        .filter((t) => t.id !== taskId)
+        .concat(updatedTask)
+    );
+  }
+  const todoTasks = tasks.filter((task) => task.status === "todo" ).sort((a,b)=> (a.order - b.order));
+  const doingTasks = tasks.filter((task) => task.status === "doing").sort((a,b)=> (a.order - b.order));
+  const doneTasks = tasks.filter((task) => task.status === "done").sort((a,b)=> (a.order - b.order));
   return (
     <div className="kanban">
       <KanbanColumn title="To Do">

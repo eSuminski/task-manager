@@ -10,6 +10,7 @@ export interface Task {
     description?: string;
     subtasks?: SubTask[];
     status: "todo" | "doing" | "done";
+    order: number;
 }
 
 export interface CreateCardProps {
