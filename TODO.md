@@ -52,9 +52,9 @@
    - ~~Add `onDragEnd` handler for cleanup~~
 
 4. **Create DropIndicator component** in [src/webview-ui/card/DropIndicator.tsx](src/webview-ui/card/DropIndicator.tsx)
-   - Visual component showing horizontal line at insertion point
-   - Receives `visible` and positioning props
-   - Style with prominent color/border for visibility
+   - ~~Visual component showing horizontal line at insertion point~~
+   - ~~Receives `visible` and positioning props~~
+   - ~~Style with prominent color/border for visibility~~
 
 5. **Convert columns to intelligent drop zones** in [column.tsx](src/webview-ui/board/column.tsx)
    - Accept `status`, `tasks`, `onMoveTask`, and `children` props
