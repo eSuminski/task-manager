@@ -1,6 +1,5 @@
 import React from 'react';
 import { KanbanColumn } from './column';
-import { StartColumn } from './StartColumn';
 import { TaskCard } from '../card/TaskCard';
 import { CreateCard } from '../card/CreateCard';
 import { SubTask, Task } from '../interface/KanbanTaskProps';
@@ -28,12 +27,12 @@ export const Kanban: React.FC = () => {
   const doneTasks = tasks.filter((task) => task.status === "done");
   return (
     <div className="kanban">
-      <StartColumn title="To Do">
+      <KanbanColumn title="To Do">
         <CreateCard onCreateTask={handleCreateTask}/>
         {todoTasks.map((task) =>(
           <TaskCard key={task.id} {...task} />
         ))}
-      </StartColumn>
+      </KanbanColumn>
       <KanbanColumn title="In Progress">
         {doingTasks.map((task) => (
           <TaskCard key={task.id} {...task} />
