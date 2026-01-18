@@ -5,31 +5,32 @@ import { VscHomePage } from '../poms/home';
 
 test.describe('Basic Task Manager features should be present', () => {
 
+  test.afterEach('reload the vsc window', async ({ vscodePage }) => {
+    const home = new VscHomePage(vscodePage);
+    await home.reloadVSCWindow();
+  });
+
   test('opens Task Manager via Command Palette', async ({ vscodePage }) => {
 
     const home = new VscHomePage(vscodePage);
 
     await home.openTaskManager();
 
-    await expect(home.taskManagerTab).toBeVisible();
+    const taskManagerFrame = await home.getTaskManagerFrame();
 
-    await home.listFrames();
+    expect(taskManagerFrame).not.toBeNull();
+
   });  
 
   test('create task card is present in task manager', async ({ vscodePage }) => {
 
     const home = new VscHomePage(vscodePage);
 
-    await home.reloadVSCWindow();
-
     await home.openTaskManager();
 
-    // await expect(home.taskManagerTab).toBeVisible();
+    const taskManagerFrame = await home.getTaskManagerFrame();
 
-    const frame = await home.getTaskManagerFrame();
-
-    await expect(frame.locator('div[data-testid="createCard"]')).toBeVisible();
+    await expect(taskManagerFrame.locator('div[data-testid="createCard"]')).toBeVisible();
   });
 
 });
-
