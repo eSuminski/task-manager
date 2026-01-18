@@ -40,7 +40,7 @@ export const CreateCard: React.FC<CreateCardProps> = ({onCreateTask}) => {
   }
 
   return (
-    <div className="task-card">
+    <div className="task-card" data-testid="createCard">
       <div className="task-card-title">
         <input type="text" placeholder="Task Title" value={title} onChange={e => setTitle(e.target.value)} />
       </div>

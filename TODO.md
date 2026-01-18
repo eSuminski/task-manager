@@ -7,7 +7,7 @@
   - [X] TODO
   - [X] DOING
   - [X] DONE
-- [ ] **Create Task card**
+- [X] **Create Task card**
 - [ ] **Implement draggable task cards**
   - [ ] Allow moving tasks between columns
 - [ ] **Persist tasks in the workspace (e.g., workspace storage or a JSON file)**

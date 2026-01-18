@@ -55,31 +55,8 @@ export const test = base.extend<Fixtures & {reloadWindow: void}>({
     await page.waitForSelector('.monaco-workbench', { state: 'visible', timeout: 2000 });
 
     await use(page);
-  },
 
-  /**
-   * Auto fixture that reloads the VS Code window before each test.
-   *
-   * Invokes the "Developer: Reload Window" command via the Command Palette,
-   * ensuring a fresh workbench state for every test. This helps isolate test
-   * side effects and improves reliability when testing VS Code extensions.
-   *
-   * The reload is performed before each test automatically; no value is injected.
-   */
-  reloadWindow: [
-    async ({ vscodePage }, use) => {
-      // Open Command Palette and run Developer: Reload Window
-      await vscodePage.keyboard.press('ControlOrMeta+Shift+P');
-      const input = vscodePage.getByRole('textbox', { name: /command/i });
-      await input.waitFor({ state: 'visible' });
-      await input.fill('Developer: Reload Window');
-      await vscodePage.keyboard.press('Enter');
-      // Wait for the workbench to reload
-      await vscodePage.waitForSelector('.monaco-workbench', { state: 'visible'});
-      await use(undefined);
-    },
-    { auto: true }
-  ],
+  },
 });
 
 export { expect };

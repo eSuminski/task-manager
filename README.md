@@ -34,7 +34,7 @@ code .
 ```
 
 ## 5. Launch the Extension
-- Press `F5` in VS Code to open a new Extension Development Host window with the Task Manager extension loaded.
+- Press `F5` in VS Code with `extension.ts` open to open a new Extension Development Host window with the Task Manager extension loaded.
 
 ---
 
