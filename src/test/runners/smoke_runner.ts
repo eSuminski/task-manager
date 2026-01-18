@@ -1,10 +1,9 @@
 import { getDateTimeString, run, setEnvironmentVariables } from './runner_utils';
 
-const dateTime = getDateTimeString();
 
-const reportFolder = `reports/smoke/smoke-report-${dateTime}`;
+const reportFolder = `reports/smoke/smoke-report`;
 
-const reportTitle = `Smoke Test Report ${dateTime}`;
+const reportTitle = `Smoke Test Report`;
 
 setEnvironmentVariables(reportFolder, reportTitle);
 
