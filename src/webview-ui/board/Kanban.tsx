@@ -3,6 +3,7 @@ import { KanbanColumn } from './column';
 import { TaskCard } from '../card/TaskCard';
 import { CreateCard } from '../card/CreateCard';
 import { SubTask, Task } from '../interface/KanbanTaskProps';
+import { DropIndicator } from '../card/DropIndicator';
 
 
 export const Kanban: React.FC = () => {
@@ -44,17 +45,26 @@ export const Kanban: React.FC = () => {
       <KanbanColumn title="To Do">
         <CreateCard onCreateTask={handleCreateTask}/>
         {todoTasks.map((task) =>(
-          <TaskCard key={task.id} {...task} />
+          <div>
+            <TaskCard key={task.id} {...task} />
+            <DropIndicator visible={false} />            
+          </div>
         ))}
       </KanbanColumn>
       <KanbanColumn title="In Progress">
         {doingTasks.map((task) => (
-          <TaskCard key={task.id} {...task} />
+          <div>
+            <TaskCard key={task.id} {...task} />
+            <DropIndicator visible={false} />
+          </div>
         ))}  
       </KanbanColumn>
       <KanbanColumn title="Done">
         {doneTasks.map((task) => (
-          <TaskCard key={task.id} {...task} />
+          <div>
+            <TaskCard key={task.id} {...task} />
+            <DropIndicator visible={false} />
+          </div>
         ))}
       </KanbanColumn>
     </div>
