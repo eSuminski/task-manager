@@ -45,26 +45,17 @@ export const Kanban: React.FC = () => {
       <KanbanColumn title="To Do">
         <CreateCard onCreateTask={handleCreateTask}/>
         {todoTasks.map((task) =>(
-          <div>
-            <TaskCard key={task.id} {...task} />
-            <DropIndicator visible={false} />            
-          </div>
+          <TaskCard key={task.id} {...task} />         
         ))}
       </KanbanColumn>
       <KanbanColumn title="In Progress">
         {doingTasks.map((task) => (
-          <div>
-            <TaskCard key={task.id} {...task} />
-            <DropIndicator visible={false} />
-          </div>
-        ))}  
+          <TaskCard key={task.id} {...task} />
+        ))}
       </KanbanColumn>
       <KanbanColumn title="Done">
         {doneTasks.map((task) => (
-          <div>
-            <TaskCard key={task.id} {...task} />
-            <DropIndicator visible={false} />
-          </div>
+          <TaskCard key={task.id} {...task} />
         ))}
       </KanbanColumn>
     </div>

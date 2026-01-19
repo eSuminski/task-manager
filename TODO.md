@@ -63,11 +63,11 @@
    - Implement `onDrop` to trigger moveTask with new status and order
    - Handle edge cases: empty columns, top/bottom drops, same-column reordering
 
-6. **Update Kanban to use unified columns ---- DONE** in [Kanban.tsx](src/webview-ui/board/Kanban.tsx)
-   - Replace StartColumn with column.tsx for all three columns
-   - Pass status prop ("todo" | "doing" | "done") to each column
-   - Render CreateCard as first child in TODO column
-   - Pass moveTask callback to all columns
+6. ~~**Update Kanban to use unified columns ---- DONE** in [Kanban.tsx](src/webview-ui/board/Kanban.tsx)~~
+   - ~~Replace StartColumn with column.tsx for all three columns~~
+   - ~~Pass status prop ("todo" | "doing" | "done") to each column~~
+   - ~~Render CreateCard as first child in TODO column~~
+   - ~~Pass moveTask callback to all columns~~
 
 7. **Add drag visual feedback** in [style.css](src/webview-ui/styling/style.css)
    - `.dragging` class: reduced opacity on source card
